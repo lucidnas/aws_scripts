@@ -96,10 +96,6 @@ def get_instance_states(instance):
         return [instance_states[0]['SystemStatus']['Status'],instance_states[0]['InstanceStatus']['Status']]
 
 
-# def get_az():
-#     return elb.describe_load_balancers()['LoadBalancerDescriptions'][0]['AvailabilityZones'][0][:-1]
-    #az = [i['LoadBalancerName'] for i in lb_desc]
-
 def get_ec2_info():
     return
 
