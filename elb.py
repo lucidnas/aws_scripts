@@ -2,17 +2,7 @@ import boto3
 import sys
 import json
 
-# from json import JSONEncoder
-# from uuid import UUID
-# import datetime
-# JSONEncoder_olddefault = JSONEncoder.default
-# def JSONEncoder_newdefault(self, o):
-#     if isinstance(o, UUID): return str(o)
-#     if isinstance(o, datetime.datetime): return str(o)
-#     return JSONEncoder_olddefault(self, o)
-# JSONEncoder.default = JSONEncoder_newdefault
 
-#json.dumps(dict,cls=DatetimeEncoder)
 elb = boto3.client('elb')
 ec2 = boto3.client('ec2')
 
@@ -20,9 +10,6 @@ email_template = ''
 
 display_bar = ['InstanceID', 'InstanceName', 'InstanceState', 'PrivateIP', 'SystemStatus', 'InstanceStatus']
 elb_name = ''
-region = ['us-east-1', 'us-west-1', 'us-west-2', 'eu-west-1',
- 'eu-central-1', 'ap-northeast-1', 'ap-northeast-2',
- 'ap-south-1', 'ap-southeast-1', 'ap-southeast-2', 'sa-east-1']
 
 
 def main():
@@ -115,44 +102,7 @@ def get_instance_states(instance):
 
 def get_ec2_info():
     return
-#response = elb.describe_load_balancers(LoadBalancerNames=[sys.argv[1]])
 
-
-#z= response['LoadBalancerDescriptions'][0]['Instances']
-#health = elb.describe_instance_health(LoadBalancerName=sys.argv[1])
-
-#po = health[u'InstanceStates']
-
-
-
-# headers = ['InstanceName', 'InstanceID', 'InstanceStatus', 'SystemStatus', 'InstanceState', 'PassingTraffic']
-# row_format = "{:>15}" * (len(headers) + 1)
-# print row_format.format("",*headers)
-
-# for each instance, determine its attribute
-# for i in xrange(0,len(z)):
-#         a = z[i][u'InstanceId']
-#
-# 	# determine the instance private ip address
-# 	desc_inst = ec2.describe_instances(InstanceIds=[z[i][u'InstanceId']])
-# 	b= desc_inst[u'Reservations'][
-#     0][u'Instances'][0][u'PrivateIpAddress']
-#         status_paginator = ec2.get_paginator('describe_instance_status')
-#         r2_iterator = status_paginator.paginate(InstanceIds=[z[i][u'InstanceId']])
-#
-#
-# 	for p in po:
-# 		if p[u'InstanceId'] == a:
-# 			s = p[u'State']
-#
-#         for r in r2_iterator:
-#         	c=  r[u'InstanceStatuses'][0][u'InstanceStatus'][u'Status']
-# 	        d=  r[u'InstanceStatuses'][0][u'SystemStatus'][u'Status']
-#         	e=  r[u'InstanceStatuses'][0][u'InstanceState'][u'Name']
-#
-#
-#         print row_format.format('',*[a,b,c,d,e,s])
-#
 if __name__ == "__main__":
  # if you call this script from the command line (the shell) it will
  # run the 'main' function
