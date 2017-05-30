@@ -50,6 +50,8 @@ def get_network_acls():
 if __name__ == '__main__':
     try:
         main()
+    except ClientError:
+        print "Your session has expired!"
     except KeyboardInterrupt:
         print "Operation aborted... exiting"
         sys.exit(130)
