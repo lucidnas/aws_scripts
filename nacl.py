@@ -10,6 +10,7 @@ def main():
 
 
 def nacl():
+
     while True:
         try:
             target_ip = raw_input('Enter Target IP: ')
