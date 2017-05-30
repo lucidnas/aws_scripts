@@ -1,4 +1,5 @@
 import boto3
+import botocore
 import sys
 
 elb = boto3.client('elb')
@@ -50,7 +51,7 @@ def get_network_acls():
 if __name__ == '__main__':
     try:
         main()
-    except ClientError:
+    except botocore.exceptions.ClientError:
         print "Your session has expired!"
     except KeyboardInterrupt:
         print "Operation aborted... exiting"
