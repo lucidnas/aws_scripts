@@ -14,38 +14,15 @@ elb_name = ''
 
 def main():
     if len(sys.argv) < 2:
-        elb_name = raw_input('Enter ELB Name: ')
-        all_elbs = get_all_elb_names()
-        if elb_name in all_elbs:
-            instances_info = get_instance_info(elb_name)
-            #print instances_info
-        # for i in instances_info:
-        #     print i.k
-            beautifier(elb_name, instances_info)
-        else:
-            print 'Could not locate ELB entered. Printing all available ELbs in region'
-            print '' * 15
-            print 'LoadBalancers:'
-            print '-' * 15
-
-            for i in get_all_elb_names():
-                print i
+        elb_name = raw_input('Enter ELB: ')
 
     else:
         elb_name = sys.argv[1]
-        all_elbs = get_all_elb_names()
-        if elb_name in all_elbs:
-            instances_info = get_instance_info(elb_name)
-            beautifier(elb_name, instances_info)
-        else:
-            print 'Could not locate ELB entered. Printing all available ELBs in region'
-            print ''
-            print 'LoadBalancers:'
-            print '-' * 50
-            for i in get_all_elb_names():
-                print i
 
-def beautifier(elb_name, instances_info):
+    get_elb_info(elb_name)
+
+
+def terminal_output(elb_name, instances_info):
     print ''
     print "State of instances behind {0}".format(elb_name)
     print "-" * 120
@@ -62,14 +39,24 @@ def email_template(elb_name, instance_info):
     return
 
 def get_elb_info(elb_name):
-    return
+    all_elbs = get_all_elb_names()
+    if elb_name in all_elbs:
+        instances_info = get_instance_info(elb_name)
+        terminal_output(elb_name, instances_info)
+    else:
+        print 'Could not locate ELB entered. Printing all available ELbs in region'
+        print '' * 15
+        print 'LoadBalancers:'
+        print '-' * 15
+
+        for i in get_all_elb_names():
+            print i
 
 
 def get_instance_info(elb_name):
     inst_names = get_all_instance_names()
     inst_state_info = elb.describe_instance_health(LoadBalancerName=elb_name)['InstanceStates']
     inst_private_ip = get_all_instances_private_ips()
-    #print inst_state_info
     inst_state_id_ip= [[[i['InstanceId'],inst_names[i['InstanceId']],
                        i['State'],inst_private_ip[i['InstanceId']]],get_instance_states(i['InstanceId'])]
                        for i in inst_state_info]
