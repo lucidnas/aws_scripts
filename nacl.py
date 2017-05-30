@@ -14,6 +14,7 @@ def main():
         else:
             print '--------------------------------------'
             print "Nacl to block Source IP: {0}".format(nacl_of(target_ip))
+            print '--------------------------------------'
         sys.exit(0)
 
 def nacl_of(target_ip):
