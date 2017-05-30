@@ -6,15 +6,15 @@ ec2 = boto3.client('ec2')
 
 
 def main():
-    target_ip = raw_input('Enter Target IP: ')
+
     while True:
+        target_ip = raw_input('Enter Target IP: ')
         if target_ip not in get_network_interfaces_info().keys():
-            print "The IP you entered is nowhere to be found. Please try again below."
+            print "The IP you entered is nowhere to be found. Could be in a different region, please try again."
         else:
             print '--------------------------------------'
             print "Nacl to block Source IP: {0}".format(nacl_of(target_ip))
-
-
+        sys.exit(0)
 
 def nacl_of(target_ip):
     subnet = get_network_interfaces_info()[target_ip]
