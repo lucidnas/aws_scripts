@@ -11,26 +11,29 @@ def main():
 
 
 def nacl():
-
-    while True:
-        try:
+    try:
+        if len(sys.argv) < 2:
             target_ip = raw_input('Enter Target IP: ')
 
-        except EOFError, KeyboardInterrupt:
-            sys.exit(130)
-
-        if target_ip.lower() in ['quit', 'exit']:
-            print "Operation aborted... exiting"
-            sys.exit(0)
-
-        elif target_ip not in get_network_interfaces_info().keys():
-            print "The IP you entered is nowhere to be found. Could be in a different region, please try again."
-
         else:
-            print '--------------------------------------'
-            print "Nacl to block Source IP: {0}".format(nacl_of(target_ip))
-            print '--------------------------------------'
-            sys.exit(0)
+            target_ip = sys.argv[1]
+
+    except EOFError, KeyboardInterrupt:
+        sys.exit(130)
+
+    if target_ip.lower() in ['quit', 'exit']:
+        print "Operation aborted... exiting."
+        sys.exit(0)
+
+    if target_ip not in get_network_interfaces_info().keys():
+        print "IP not found. Please try again."
+        sys.exit(0)
+
+    else:
+        print '--------------------------------------'
+        print "Nacl to block Source IP: {0}".format(nacl_of(target_ip))
+        print '--------------------------------------'
+        sys.exit(0)
 
 def nacl_of(target_ip):
     subnet = get_network_interfaces_info()[target_ip]
@@ -54,5 +57,5 @@ if __name__ == '__main__':
     except botocore.exceptions.ClientError:
         print "Your session has expired!"
     except KeyboardInterrupt:
-        print "Operation aborted... exiting"
+        print "\nOperation aborted... exiting."
         sys.exit(130)
