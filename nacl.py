@@ -1,10 +1,14 @@
+#To use this script:
+#Simlply type, python nacl.py 'IP of instance attacked' or python nacl.py
+#To avoid typing this all the time, you could create a symlink,
+#pointing to the directory of the script or just a simlple alias.
+
 import boto3
 import botocore
 import sys
 
 elb = boto3.client('elb')
 ec2 = boto3.client('ec2')
-#sys.tracebacklimit = 0
 
 def main():
     nacl()
@@ -13,7 +17,7 @@ def main():
 def nacl():
     try:
         if len(sys.argv) < 2:
-            target_ip = raw_input('Enter Target IP: ')
+            target_ip = raw_input('Enter Instance IP: ')
 
         else:
             target_ip = sys.argv[1]
