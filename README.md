@@ -14,7 +14,6 @@ The program accepts the IP of an instance as a cmd line argument or prompts the
 user to enter an instance IP if no argument is provided by the user. 
 
 Usage: 
-------
 From LTS do either of the following:
 
 [amohammed@lw-lts-155: ~/scripts/NOC-Scripts <lw-sandbox ap-southeast-1 59:09>]
@@ -48,7 +47,6 @@ The program accepts the the name of an ELB as a cmdline argument or prompts the 
 the name of the ELB.
 
 Usage:
-------
 From LTS do either of the the following:
 
 [amohammed@lw-lts-155: ~/scripts/NOC-Scripts <lw-sandbox ap-southeast-1 36:20>]
@@ -112,7 +110,6 @@ The program accepts the name of a particular client and logs you into the client
 It also adds and forwards your ssh keys to the bastion server.
 
 Usage:
-------
 From LTS do the follwoing:
 
 $ ./client_bastion sans
