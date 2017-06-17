@@ -19,9 +19,9 @@ From LTS do either of the following:
 
 [amohammed@lw-lts-155: ~/scripts/NOC-Scripts <lw-sandbox ap-southeast-1 59:09>]
 $ python nacl.py 10.246.1.56
---------------------------------------
+.....................................
 Nacl to block Source IP: acl-7eebc71a
---------------------------------------
+.....................................
 
 [amohammed@lw-lts-155: ~/scripts/NOC-Scripts <lw-sandbox ap-southeast-1 55:32>]
 $ python nacl.py
