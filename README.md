@@ -22,7 +22,7 @@ Nacl to block Source IP: acl-7eebc71a
 
 Create an alias to call the script from anywhere in the terminal:
 ```
-alias nacl='python ~/where/you/saved/the/script/nacl.py'
+alias nacl='python ~/script/location/nacl.py'
 ```
 ```
 $ nacl 10.246.1.56
@@ -62,5 +62,5 @@ hub-exttoint-elb-internal-elb
 ```
 Create an alias to call the script from anywhere in the terminal
 ```
-alias pelb='python ~/scripts/NOC-Scripts/elb.py'
+alias pelb='python ~~/script/location/elb.py'
 ```
