@@ -62,5 +62,5 @@ hub-exttoint-elb-internal-elb
 ```
 Create an alias to call the script from anywhere in the terminal
 ```
-alias pelb='python ~~/script/location/elb.py'
+alias pelb='python ~/script/location/elb.py'
 ```
