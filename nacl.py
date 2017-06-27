@@ -1,7 +1,4 @@
-#To use this script:
-#Simlply type, python nacl.py 'IP of instance attacked' or python nacl.py
-#To avoid typing this all the time, you could create a symlink,
-#pointing to the directory of the script or just a simlple alias.
+#!/usr/bin/python
 
 import boto3
 import botocore
